@@ -1,0 +1,10 @@
+# Add the below lines using crontab -e
+
+# Set timezone to local for Cron
+CRON_TZ=Country/City
+
+# Run day-mode.sh every day at 4:00 AM. The script blocks until sunset.
+0 05 * * * /scriptlocation/scripts/day-mode.sh 2>&1 | logger -t daymode
+
+# Run night-mode.sh every day at 5:00 PM. The script blocks until sunset.
+0 17 * * * /scriptlocation/scripts/night-mode.sh 2>&1 | logger -t nightmode
